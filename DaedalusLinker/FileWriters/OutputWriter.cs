@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace DaedalusLinker.FileReaders
+namespace DaedalusLinker.FileWriters
 {
     public class OutputWriter
     {

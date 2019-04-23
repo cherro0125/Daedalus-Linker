@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using DaedalusLinker.Utils;
+using DaedalusLinker.Exceptions;
 
 namespace DaedalusLinker.FileReaders
 {
@@ -13,9 +14,9 @@ namespace DaedalusLinker.FileReaders
         public SourceReader(String srcPath)
         {
             this.paths = new List<SourcePath>();
-            filesContent = String.Empty;           
-            if(Path.GetExtension(srcPath).ToLower() != ".src")
-                throw new Exception("Not supported source extension");
+            filesContent = String.Empty;
+            if (Path.GetExtension(srcPath).ToLower() != ".src")
+                throw new BadExtensionException();
             using (StreamReader sr = File.OpenText(srcPath))
             {
                 string s;
