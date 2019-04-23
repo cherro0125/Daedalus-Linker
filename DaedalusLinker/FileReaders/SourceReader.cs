@@ -13,7 +13,9 @@ namespace DaedalusLinker.FileReaders
         public SourceReader(String srcPath)
         {
             this.paths = new List<SourcePath>();
-            filesContent = String.Empty;
+            filesContent = String.Empty;           
+            if(Path.GetExtension(srcPath).ToLower() != ".src")
+                throw new Exception("Not supported source extension");
             using (StreamReader sr = File.OpenText(srcPath))
             {
                 string s;

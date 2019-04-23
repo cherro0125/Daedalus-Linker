@@ -9,6 +9,8 @@ namespace DaedalusLinker.FileReaders
 
         public OutputWriter(String outputPath, String outputContent = null)
         {
+            if (Path.GetExtension(outputPath).ToLower() != ".d")
+                throw new Exception("Bad output extension!");            
             content = outputContent;
             using (StreamWriter sw = new StreamWriter(outputPath))
             {
